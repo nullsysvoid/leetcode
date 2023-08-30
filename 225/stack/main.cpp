@@ -43,7 +43,7 @@ private:
  */
 
 TEST(Test, Smoke) {
-	MyStack* obj = new MyStack();
+	std::shared_ptr<MyStack> obj = std::make_shared<MyStack>();
     obj->push(1);
     ASSERT_EQ(obj->top(), 1);
 
