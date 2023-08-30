@@ -31,7 +31,7 @@ public:
 };
 
 TEST(Test, Smoke) {
-	std::shared_ptr<Solution> obj = std::make_shared<Solution>();
+    std::shared_ptr<Solution> obj = std::make_shared<Solution>();
     ASSERT_EQ("leetcode", obj->makeGood("leEeetcode"));
     ASSERT_EQ("", obj->makeGood("abBAcC"));
     ASSERT_EQ("s", obj->makeGood("s"));
