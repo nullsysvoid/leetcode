@@ -11,4 +11,7 @@ add_executable(sample main.cpp)
 
 target_link_libraries(${TARGET_NAME}
   GTest::gtest_main
+  ${CMAKE_SOURCE_DIR}/../../utils/utils.cpp
 )
+
+target_include_directories(${TARGET_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/../../)

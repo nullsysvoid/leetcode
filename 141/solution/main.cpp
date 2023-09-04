@@ -1,13 +1,7 @@
 #include <gtest/gtest.h>
 #include <bits/stdc++.h>
+#include <utils/utils.h>
 
-//Definition for singly-linked list.
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
- 
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
@@ -31,19 +25,6 @@ public:
         return false;
     }
 };
-
-ListNode* CreateLinkedList(std::vector<int>& nums) {
-    ListNode* dummy = new ListNode(0);
-    ListNode* current = dummy;
-    
-    for (auto num : nums) {
-        ListNode* newNode = new ListNode(num);
-        current->next = newNode;
-        current = current->next;
-    }
-    
-    return dummy->next;
-}
 
 TEST(Test, Smoke) {
     std::shared_ptr<Solution> obj = std::make_shared<Solution>();
