@@ -8,4 +8,5 @@ struct ListNode {
     ListNode(int x) : val(x), next(NULL) {}
 };
 
+bool CompareLinkedLists(ListNode* head1, ListNode* head2);
 ListNode* CreateLinkedList(std::vector<int>& nums);
