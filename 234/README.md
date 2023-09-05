@@ -1,0 +1,37 @@
+234. Palindrome Linked List
+Easy
+15.1K
+814
+Companies
+
+Given the head of a singly linked list, return true if it is a
+palindrome
+or false otherwise.
+
+ 
+
+Example 1:
+
+Input: head = [1,2,2,1]
+Output: true
+
+Example 2:
+
+Input: head = [1,2]
+Output: false
+
+ 
+
+Constraints:
+
+    The number of nodes in the list is in the range [1, 105].
+    0 <= Node.val <= 9
+
+ 
+Follow up: Could you do it in O(n) time and O(1) space?
+Accepted
+1.6M
+Submissions
+3.1M
+Acceptance Rate
+50.9%
