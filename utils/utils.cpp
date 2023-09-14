@@ -1,5 +1,47 @@
 #include "utils.h"
 
+namespace binary_tree{
+namespace{
+TreeNode * helper(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+    if (begin == end) {
+        return nullptr;
+    }
+    
+    auto node = new TreeNode(*begin);
+    auto right = upper_bound(begin + 1, end, *begin);
+    
+    node->left = helper(begin + 1, right);
+    node->right = helper(right, end);
+    return node;
+}
+}
+
+TreeNode* CreateTreePreorder(std::vector<int>& preorder) 
+{
+    return helper(preorder.begin(), preorder.end());
+}
+
+bool CompareTrees(TreeNode* root1, TreeNode* root2)
+{
+    if (!root1 && !root2)
+        return true;
+    
+    else if (!root1 || !root2)
+        return false;
+    else 
+    {
+        if (root1->val == root2->val)
+        { 
+            if(CompareTrees(root1->left, root2->left) && CompareTrees(root1->right, root2->right))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+}
+
 bool CompareLinkedLists(ListNode* head1, ListNode* head2)
 {
     while (head1 && head2)
