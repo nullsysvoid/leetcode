@@ -12,6 +12,7 @@ struct TreeNode {
 };
 
 TreeNode* CreateTreePreorder(std::vector<int>& preorder);
+TreeNode* CreateTreeInorder(std::vector<int>& inorder);
 bool CompareTrees(TreeNode* root1, TreeNode* root2);
 }
 

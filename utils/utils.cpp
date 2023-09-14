@@ -2,7 +2,8 @@
 
 namespace binary_tree{
 namespace{
-TreeNode * helper(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+
+TreeNode* helperPre(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
     if (begin == end) {
         return nullptr;
     }
@@ -10,15 +11,36 @@ TreeNode * helper(std::vector<int>::iterator begin, std::vector<int>::iterator e
     auto node = new TreeNode(*begin);
     auto right = upper_bound(begin + 1, end, *begin);
     
-    node->left = helper(begin + 1, right);
-    node->right = helper(right, end);
+    node->left = helperPre(begin + 1, right);
+    node->right = helperPre(right, end);
     return node;
 }
+
+TreeNode* helperInorder(std::vector<int>& v, int l, int r)
+{
+	if(l > r)
+    {
+	    return nullptr;
+	}
+
+	int m = (l+r)/2;
+	TreeNode* root = new TreeNode(v[m]);
+
+	root->left = helperInorder(v, l, m - 1);
+	root-> right = helperInorder(v, m + 1, r);
+	return root;
+}
+
+} //namespace
+
+TreeNode* CreateTreeInorder(std::vector<int>& inorder)
+{
+	return helperInorder(inorder, 0, inorder.size() - 1);
 }
 
 TreeNode* CreateTreePreorder(std::vector<int>& preorder) 
 {
-    return helper(preorder.begin(), preorder.end());
+    return helperPre(preorder.begin(), preorder.end());
 }
 
 bool CompareTrees(TreeNode* root1, TreeNode* root2)
