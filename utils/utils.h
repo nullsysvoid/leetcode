@@ -39,7 +39,8 @@ public:
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
 bool CompareLinkedLists(ListNode* head1, ListNode* head2);
